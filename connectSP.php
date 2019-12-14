@@ -15,12 +15,12 @@ mysqli_select_db($con,'signupdb');
 
 $uname=$_POST['username'];
 
-$phone=$_POST['contact'];
+$phone=$_POST['phone'];
 $email=$_POST['email'];
 
 $pass=$_POST['password2'];
 
-$q=" select * from signupSP where username='$uname' && contact='$phone' && email='$email' && password='$pass' ";
+$q=" select * from signupSP where username='$uname' && email='$email' && contact='$phone' && password='$pass' ";
 
 $result=mysqli_query($con,$q);
 $num=mysqli_num_rows($result);
@@ -35,7 +35,4 @@ else{
 
 }
 }
-
-
-
 ?>

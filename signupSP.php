@@ -1,6 +1,8 @@
 <?php session_start();
-include('connectSP.php'); ?>
-<!DOCTYPE html>
+include('connectSP.php');
+// include('userdatatovijay.php');
+ ?>
+<!DOCTYPE html>	
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style2.css">

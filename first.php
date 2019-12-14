@@ -1,12 +1,9 @@
-<<<<<<< HEAD
 <?php
 session_start();
 include_once('connection.php');
 include('userdatatovijay.php');
 $query="select * from sp ";
 $result=mysqli_query($con,$query);
-
-
 ?>
 
 
@@ -32,41 +29,42 @@ $result=mysqli_query($con,$query);
     <title>Document</title>
 
     <style> 
-            
-            div.scroll { 
-                margin-left:25px;
-                padding:4px; 
-               background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)),url("img2.jpg");
- 
-                
-                background-size:cover;
-                background-position:center;
-                width: 1350px; 
-                height: 800px;
-                margin-top:150px;
-                margin-bottom:30px;
-                margin-right:25px;
-                align:center; 
-                overflow-x: hidden; 
-                overflow-x: auto; 
-                text-align:justify; 
+      div.scroll { 
+          margin-left:25px;
+          padding:4px; 
+          background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)),url("img2.jpg");
+
+          
+          background-size:cover;
+          background-position:center;
+          width: 1350px; 
+          height: 800px;
+          margin-top:150px;
+          margin-bottom:30px;
+          margin-right:25px;
+          align:center; 
+          overflow-x: hidden; 
+          overflow-x: auto; 
+          text-align:justify; 
             } 
             
         </style> 
-        <script>
+        <script type = 'text/javascript'>
           function myFunction(){
             //alert("Your booking is successful");
             //document.getElementById("Button").disabled=true;
-            fetch('localhost/wdl/userdatatovijay.php')
+            fetch('userdatatovijay.php')
               .then(() => {
-                document.getElementById("Button").disabled=true;
+                var length = document.querySelectorAll(".cbtn").length;
+                var btns =  document.querySelectorAll(".cbtn");
+                console.log(length); 
                 alert('Your request is sent');
-              })
-              .catch(console.log);
+                })
+                // document.querySelectorAll(".cbtn")[1].disabled=true;
+              .catch(console.log);  
           }
         </script>
-        
-    </head>
+      </head>
   <body>
    <div class="fixed">
       <img class="img1" src="logonew.png" />
@@ -76,7 +74,7 @@ $result=mysqli_query($con,$query);
 
           
           
-          <li class="active"><a href="logout.php"></i><b>LOGOUT</b></a></li>
+          <li class="active"><a href="logout.php"><b>LOGOUT</b></a></li>
         </ul>
       </div>
 
@@ -102,11 +100,13 @@ $result=mysqli_query($con,$query);
                       <p style="margin-left:100px; color:black;">NAME : <?php echo $rows['spname']; ?></p>
                     </div>
                     <div class="row">
-                      <p style="margin-left:100px; color:black;">LOCATION : <?php echo $rows['location']; ?></p> 
+                      <p style="margin-left:100px; color:black;">LOCATION : <?php echo $rows['location']; ?></p>  
                        <?php if($rows['status']=="A") { ?>
-                            <!--<p style="margin-left:180px;"><button type="button" class="btn btn-success" name="reg_user" onclick="">BOOK NOW</button></p>-->
                             
-                              <p style="margin-left:180px;"><button id="Button" type="button" name="reg_user" onclick="myFunction()">BOOK NOW</button></p>
+                            <!--<p style="margin-left:180px;"><button type="button" class="btn btn-success" name="reg_user" onclick="">BOOK NOW</button></p>-->
+
+                              
+                              <p style="margin-left:180px;"><button class = 'cbtn' type="button" name="reg_user" onclick="myFunction()">BOOK NOW</button></p>
                             
                         <?php } else { ?>
                             <p style="margin-left:180px;"><button type="button" class="btn btn-secondary btn-lg" disabled>BUSY</button></p>
@@ -114,9 +114,9 @@ $result=mysqli_query($con,$query);
                   
                     </div>
                     <div class="row">
-                      <p style="margin-left:100px; color:black;">AVAILABILITY : <?php echo $rows['availability']; ?></p>
+                      <p style="margin-left:100px; color:black;">AVAILABILITY : <?php echo $rows['status']; ?></p>
                     </div>
-                    <div class="row">
+                    <div class="row">   
                       <p style="margin-left:100px; color:black;">EMAIL : <?php echo $rows['email']; ?></p>
                     </div>
                     
@@ -338,7 +338,6 @@ $result=mysqli_query($con,$query);
         </section>
       </footer>
   </body>
-=======
 <?php
 session_start();
 include_once('connection.php');
@@ -661,6 +660,6 @@ $result=mysqli_query($con,$query);
 
         </section>
       </footer>
+      
   </body>
->>>>>>> b9ce094fac334b80a9f278f9e8ae627bf3501aeb
 </html>
